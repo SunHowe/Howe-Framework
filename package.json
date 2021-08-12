@@ -1,0 +1,16 @@
+{
+    "name": "com.howegame.framework",
+    "author": "SunHowe",
+    "displayName": "HoweFramework",
+    "description": "Provide a common solution to create game.",
+    "unity": "2020.3",
+    "version": "2021.8.12",
+    "keywords": [
+        "howegame"
+    ],
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SunHowe/Howe-Framework.git"
+    }
+}
