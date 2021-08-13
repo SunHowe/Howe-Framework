@@ -31,22 +31,39 @@ namespace HoweFramework.Variable
         public TValue GetData<TValue>(TKey key, TValue defaultValue = default)
         {
             if (_variables.TryGetValue(key, out var variableBase) && variableBase is Variable<TValue> variable)
-                return variable
+                return variable.value;
+
+            return defaultValue;
         }
 
         public TValue RemoveData<TValue>(TKey key, TValue defaultValue = default)
         {
-            throw new System.NotImplementedException();
+            if (_variables.TryGetValue(key, out var variableBase) && variableBase is Variable<TValue> variable)
+            {
+                var value = variable.value;
+                _variables.Remove(key);
+                PoolService.Release(variable);
+                return value;
+            }
+
+            return defaultValue;
         }
 
         public void RemoveData(TKey key)
         {
-            throw new System.NotImplementedException();
+            if (!_variables.TryGetValue(key, out var variableBase))
+                return;
+
+            _variables.Remove(key);
+            PoolService.Release(variableBase);
         }
 
         public void RemoveAllData()
         {
-            throw new System.NotImplementedException();
+            foreach (var variable in _variables.Values)
+                PoolService.Release(variable);
+
+            _variables.Clear();
         }
     }
 }
