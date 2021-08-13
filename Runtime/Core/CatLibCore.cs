@@ -1,6 +1,7 @@
 ﻿using CatLib;
 using HoweFramework.Base;
 using CatLib.Container;
+using HoweFramework.Pool;
 
 namespace HoweFramework.Core
 {
@@ -18,6 +19,8 @@ namespace HoweFramework.Core
             _application = Application.New(true);
             _application.OnResolving<IService>(service => { service.Initialize(); });
             _application.OnRelease<IService>(service => { service.Dispose(); });
+
+            _application.Singleton<IPoolService, PoolServiceImpl>();
         }
 
         public void Initialize()
