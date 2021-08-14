@@ -5,7 +5,7 @@ namespace HoweFramework.Pool
     /// <summary>
     /// 全局对象池服务
     /// </summary>
-    public interface IPoolService : IService
+    public interface IPoolService
     {
         /// <summary>
         /// 返回一个可用实例

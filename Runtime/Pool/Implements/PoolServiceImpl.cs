@@ -1,6 +1,8 @@
-﻿namespace HoweFramework.Pool
+﻿using HoweFramework.Base;
+
+namespace HoweFramework.Pool
 {
-    internal class PoolServiceImpl : IPoolService
+    internal class PoolServiceImpl : IPoolService, IService
     {
         private IPools _pools;
 
