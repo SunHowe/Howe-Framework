@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace HoweFramework.Asset
 {
@@ -37,5 +38,10 @@ namespace HoweFramework.Asset
         /// 释放指定对象
         /// </summary>
         void ReleaseInstance(GameObject gameObject);
+
+        /// <summary>
+        /// 异步加载场景
+        /// </summary>
+        Task<ISceneInstance> LoadSceneAsync(string resKey, LoadSceneMode loadMode = LoadSceneMode.Single, bool activateOnLoad = true);
     }
 }
