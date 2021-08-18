@@ -1,6 +1,7 @@
 ﻿using CatLib;
 using HoweFramework.Base;
 using HoweFramework.Pool;
+using HoweFramework.Update;
 
 namespace HoweFramework
 {
@@ -14,6 +15,7 @@ namespace HoweFramework
             App.OnResolving<IService>(service => { service.Initialize(); });
             App.OnRelease<IService>(service => { service.Dispose(); });
             App.Register(new PoolServiceProvider());
+            App.Register(new UpdateServiceProvider());
         }
     }
 }
