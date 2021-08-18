@@ -36,6 +36,6 @@ namespace HoweFramework.Asset
         /// <summary>
         /// 释放指定对象
         /// </summary>
-        void Release(GameObject gameObject);
+        void ReleaseInstance(GameObject gameObject);
     }
 }
